@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Rayonnant-shard-commits] r3 - in trunk/shard/rayonnant/definitions/npcs: . monsters
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/rayonnant-shard-commits/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:rayonnant-shard-commits%40lists.berlios.de?Subject=Re%3A%20%5BRayonnant-shard-commits%5D%20r3%20-%20in%20trunk/shard/rayonnant/definitions/npcs%3A%20.%20monsters&In-Reply-To=%3C200503092111.j29LBftB013314%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Rayonnant-shard-commits] r3 - in trunk/shard/rayonnant/definitions/npcs: . monsters</H1>
+    <B>Richard Meyer at BerliOS</B> 
+    <A HREF="mailto:rayonnant-shard-commits%40lists.berlios.de?Subject=Re%3A%20%5BRayonnant-shard-commits%5D%20r3%20-%20in%20trunk/shard/rayonnant/definitions/npcs%3A%20.%20monsters&In-Reply-To=%3C200503092111.j29LBftB013314%40sheep.berlios.de%3E"
+       TITLE="[Rayonnant-shard-commits] r3 - in trunk/shard/rayonnant/definitions/npcs: . monsters">dreoth at sheep.berlios.de
+       </A><BR>
+    <I>Wed Mar  9 22:11:41 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[Rayonnant-shard-commits] r2 - in trunk/shard: docs rayonnant/definitions rayonnant/definitions/items rayonnant/definitions/items/farm rayonnant/definitions/lists rayonnant/definitions/locations rayonnant/definitions/npcs rayonnant/definitions/npcs/animals rayonnant/definitions/npcs/monsters rayonnant/definitions/regions rayonnant/definitions/regions/dungeons rayonnant/definitions/regions/misc rayonnant/definitions/regions/towns rayonnant/definitions/spawnregions rayonnant/definitions/spawnregions/towns rayonnant/definitions/spawnregions/tworivers rayonnant/definitions/system rayonnant/definitions/teleports rayonnant/shardscripts rayonnant/shardscripts/auto rayonnant/shardscripts/commands rayonnant/shardscripts/farms rayonnant/shardscripts/npcs rayonnant/shardscripts/races rayonnant/shardscripts/server rayonnant/shardscripts/skills rayonnant/shardscripts/system
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: dreoth
+Date: 2005-03-09 22:11:40 +0100 (Wed, 09 Mar 2005)
+New Revision: 3
+
+Modified:
+   trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml
+   trunk/shard/rayonnant/definitions/npcs/testing.xml
+Log:
+Updates
+
+
+Modified: trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml	2005-03-06 22:26:37 UTC (rev 2)
++++ trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml	2005-03-09 21:11:40 UTC (rev 3)
+@@ -58,9 +58,9 @@
+ 		&lt;tag name=&quot;def_poison&quot; value=&quot;100&quot; type=&quot;int&quot; /&gt;
+ 		&lt;tag name=&quot;def_energy&quot; value=&quot;50&quot; type=&quot;int&quot; /&gt;
+ 		&lt;!-- Skills --&gt;
+-		&lt;anatomy&gt;&lt;random min=&quot;200&quot; max=&quot;900&quot; /&gt;&lt;/anatomy&gt;
+-		&lt;tactics&gt;&lt;random min=&quot;600&quot; max=&quot;900&quot; /&gt;&lt;/tactics&gt;
+-		&lt;wrestling&gt;&lt;random min=&quot;600&quot; max=&quot;900&quot; /&gt;&lt;/wrestling&gt;
++		&lt;skill id=&quot;anatomy&quot;&gt;&lt;random min=&quot;200&quot; max=&quot;900&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;tactics&quot;&gt;&lt;random min=&quot;600&quot; max=&quot;900&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;wrestling&quot;&gt;&lt;random min=&quot;600&quot; max=&quot;900&quot; /&gt;&lt;/skill&gt;
+ 		&lt;!-- Loot Packs --&gt;
+ 		&lt;!--&lt;lootpacks&gt;pack_name&lt;/lootpacks&gt;--&gt;
+ 		&lt;!-- Misc. Stuff --&gt;
+
+Modified: trunk/shard/rayonnant/definitions/npcs/testing.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/testing.xml	2005-03-06 22:26:37 UTC (rev 2)
++++ trunk/shard/rayonnant/definitions/npcs/testing.xml	2005-03-09 21:11:40 UTC (rev 3)
+@@ -47,12 +47,12 @@
+ 		&lt;mindamage&gt;9&lt;/mindamage&gt;
+ 		&lt;maxdamage&gt;29&lt;/maxdamage&gt;
+ 		&lt;!-- Skills --&gt;
+-		&lt;wrestling&gt;&lt;random min=&quot;848&quot; max=&quot;981&quot; /&gt;&lt;/wrestling&gt;
+-		&lt;tactics&gt;&lt;random min=&quot;976&quot; max=&quot;1000&quot; /&gt;&lt;/tactics&gt;
+-		&lt;magicresistance&gt;&lt;random min=&quot;860&quot; max=&quot;990&quot; /&gt;&lt;/magicresistance&gt;
+-		&lt;magery&gt;&lt;random min=&quot;911&quot; max=&quot;1000&quot; /&gt;&lt;/magery&gt;
+-		&lt;anatomy&gt;0&lt;/anatomy&gt;
+-		&lt;meditation&gt;0&lt;/meditation&gt;
++		&lt;skill id=&quot;wrestling&quot;&gt;&lt;random min=&quot;848&quot; max=&quot;981&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;tactics&quot;&gt;&lt;random min=&quot;976&quot; max=&quot;1000&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;magicresistance&quot;&gt;&lt;random min=&quot;860&quot; max=&quot;990&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;magery&quot;&gt;&lt;random min=&quot;911&quot; max=&quot;1000&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;anatomy&quot;&gt;0&lt;/skill&gt;
++		&lt;skill id=&quot;meditation&quot;&gt;0&lt;/skill&gt;
+ 		&lt;!-- Misc --&gt;
+ 		&lt;totame&gt;998&lt;/totame&gt;
+ 		&lt;food&gt;1&lt;/food&gt;
+@@ -75,10 +75,10 @@
+ 		&lt;mindamage&gt;9&lt;/mindamage&gt;
+ 		&lt;maxdamage&gt;29&lt;/maxdamage&gt;
+ 		&lt;!-- Skills --&gt;
+-		&lt;wrestling&gt;&lt;random min=&quot;848&quot; max=&quot;981&quot; /&gt;&lt;/wrestling&gt;
+-		&lt;tactics&gt;&lt;random min=&quot;976&quot; max=&quot;1000&quot; /&gt;&lt;/tactics&gt;
+-		&lt;magicresistance&gt;&lt;random min=&quot;860&quot; max=&quot;990&quot; /&gt;&lt;/magicresistance&gt;
+-		&lt;anatomy&gt;0&lt;/anatomy&gt;
++		&lt;skill id=&quot;wrestling&quot;&gt;&lt;random min=&quot;848&quot; max=&quot;981&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;tactics&quot;&gt;&lt;random min=&quot;976&quot; max=&quot;1000&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;magicresistance&quot;&gt;&lt;random min=&quot;860&quot; max=&quot;990&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;anatomy&quot;&gt;0&lt;/skill&gt;
+ 		&lt;!-- Equipment --&gt;
+ 		&lt;equipped&gt;
+ 			&lt;item inherit=&quot;e75&quot; /&gt;
+@@ -110,10 +110,10 @@
+ 		&lt;dex&gt;&lt;random min=&quot;66&quot; max=&quot;120&quot; /&gt;&lt;/dex&gt;
+ 		&lt;int&gt;&lt;random min=&quot;66&quot; max=&quot;100&quot; /&gt;&lt;/int&gt;
+ 		&lt;!-- Skills --&gt;
+-		&lt;wrestling&gt;&lt;random min=&quot;848&quot; max=&quot;981&quot; /&gt;&lt;/wrestling&gt;
+-		&lt;tactics&gt;&lt;random min=&quot;976&quot; max=&quot;1000&quot; /&gt;&lt;/tactics&gt;
+-		&lt;magicresistance&gt;&lt;random min=&quot;860&quot; max=&quot;990&quot; /&gt;&lt;/magicresistance&gt;
+-		&lt;anatomy&gt;0&lt;/anatomy&gt;
++		&lt;skill id=&quot;wrestling&quot;&gt;&lt;random min=&quot;848&quot; max=&quot;981&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;tactics&quot;&gt;&lt;random min=&quot;976&quot; max=&quot;1000&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;magicresistance&quot;&gt;&lt;random min=&quot;860&quot; max=&quot;990&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;anatomy&quot;&gt;0&lt;/skill&gt;
+ 		&lt;!-- Equipment --&gt;
+ 		&lt;equipped&gt;
+ 			&lt;item inherit=&quot;e75&quot; /&gt;
+@@ -144,10 +144,10 @@
+ 		&lt;mindamage&gt;1&lt;/mindamage&gt;
+ 		&lt;maxdamage&gt;6&lt;/maxdamage&gt;
+ 		&lt;!-- Skills --&gt;
+-		&lt;wrestling&gt;&lt;random min=&quot;848&quot; max=&quot;981&quot; /&gt;&lt;/wrestling&gt;
+-		&lt;tactics&gt;&lt;random min=&quot;976&quot; max=&quot;1000&quot; /&gt;&lt;/tactics&gt;
+-		&lt;magicresistance&gt;&lt;random min=&quot;860&quot; max=&quot;990&quot; /&gt;&lt;/magicresistance&gt;
+-		&lt;anatomy&gt;0&lt;/anatomy&gt;
++		&lt;skill id=&quot;wrestling&quot;&gt;&lt;random min=&quot;848&quot; max=&quot;981&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;tactics&quot;&gt;&lt;random min=&quot;976&quot; max=&quot;1000&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;magicresistance&quot;&gt;&lt;random min=&quot;860&quot; max=&quot;990&quot; /&gt;&lt;/skill&gt;
++		&lt;skill id=&quot;anatomy&quot;&gt;0&lt;/skill&gt;
+ 		&lt;!-- Equipment --&gt;
+ 		&lt;equipped&gt;
+ 			&lt;item inherit=&quot;e75&quot; /&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[Rayonnant-shard-commits] r2 - in trunk/shard: docs rayonnant/definitions rayonnant/definitions/items rayonnant/definitions/items/farm rayonnant/definitions/lists rayonnant/definitions/locations rayonnant/definitions/npcs rayonnant/definitions/npcs/animals rayonnant/definitions/npcs/monsters rayonnant/definitions/regions rayonnant/definitions/regions/dungeons rayonnant/definitions/regions/misc rayonnant/definitions/regions/towns rayonnant/definitions/spawnregions rayonnant/definitions/spawnregions/towns rayonnant/definitions/spawnregions/tworivers rayonnant/definitions/system rayonnant/definitions/teleports rayonnant/shardscripts rayonnant/shardscripts/auto rayonnant/shardscripts/commands rayonnant/shardscripts/farms rayonnant/shardscripts/npcs rayonnant/shardscripts/races rayonnant/shardscripts/server rayonnant/shardscripts/skills rayonnant/shardscripts/system
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/rayonnant-shard-commits">More information about the Rayonnant-shard-commits
+mailing list</a><br>
+</body></html>

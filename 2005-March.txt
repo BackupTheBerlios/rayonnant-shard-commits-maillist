@@ -1,0 +1,1659 @@
+From dreoth at sheep.berlios.de  Sun Mar  6 23:26:38 2005
+From: dreoth at sheep.berlios.de (Richard Meyer at BerliOS)
+Date: Sun, 6 Mar 2005 23:26:38 +0100
+Subject: [Rayonnant-shard-commits] r2 - in trunk/shard: docs rayonnant/definitions rayonnant/definitions/items rayonnant/definitions/items/farm rayonnant/definitions/lists rayonnant/definitions/locations rayonnant/definitions/npcs rayonnant/definitions/npcs/animals rayonnant/definitions/npcs/monsters rayonnant/definitions/regions rayonnant/definitions/regions/dungeons rayonnant/definitions/regions/misc rayonnant/definitions/regions/towns rayonnant/definitions/spawnregions rayonnant/definitions/spawnregions/towns rayonnant/definitions/spawnregions/tworivers rayonnant/definitions/system rayonnant/definitions/teleports rayonnant/shardscripts rayonnant/shardscripts/auto rayonnant/shardscripts/commands rayonnant/shardscripts/farms rayonnant/shardscripts/npcs rayonnant/shardscripts/races rayonnant/shardscripts/server rayonnant/shardscripts/skills rayonnant/shardscripts/system
+Message-ID: <200503062226.j26MQcMZ029547@sheep.berlios.de>
+
+Author: dreoth
+Date: 2005-03-06 23:26:37 +0100 (Sun, 06 Mar 2005)
+New Revision: 2
+
+Added:
+   trunk/shard/docs/releases.html
+Modified:
+   trunk/shard/docs/ChangeLog.rayonnant
+   trunk/shard/docs/README
+   trunk/shard/docs/authors.css
+   trunk/shard/docs/authors.dtd
+   trunk/shard/docs/authors.xml
+   trunk/shard/docs/fileheaders.txt
+   trunk/shard/rayonnant/definitions/index.xml
+   trunk/shard/rayonnant/definitions/items/farm/trees.xml
+   trunk/shard/rayonnant/definitions/items/index.xml
+   trunk/shard/rayonnant/definitions/lists/index.xml
+   trunk/shard/rayonnant/definitions/locations/index.xml
+   trunk/shard/rayonnant/definitions/locations/rayonnant.xml
+   trunk/shard/rayonnant/definitions/npcs/animals/rabbit.xml
+   trunk/shard/rayonnant/definitions/npcs/index.xml
+   trunk/shard/rayonnant/definitions/npcs/monsters/index.xml
+   trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml
+   trunk/shard/rayonnant/definitions/npcs/testing.xml
+   trunk/shard/rayonnant/definitions/regions/dungeons/bunny_den.xml
+   trunk/shard/rayonnant/definitions/regions/index.xml
+   trunk/shard/rayonnant/definitions/regions/misc/green_acres.xml
+   trunk/shard/rayonnant/definitions/regions/rayonnant.xml
+   trunk/shard/rayonnant/definitions/regions/towns/thalos.xml
+   trunk/shard/rayonnant/definitions/spawnregions/index.xml
+   trunk/shard/rayonnant/definitions/spawnregions/towns/index.xml
+   trunk/shard/rayonnant/definitions/spawnregions/towns/thalos.xml
+   trunk/shard/rayonnant/definitions/spawnregions/towns/thalos_farms.xml
+   trunk/shard/rayonnant/definitions/spawnregions/tworivers/index.xml
+   trunk/shard/rayonnant/definitions/spawnregions/tworivers/wilderness.xml
+   trunk/shard/rayonnant/definitions/system/index.xml
+   trunk/shard/rayonnant/definitions/system/scripts.xml
+   trunk/shard/rayonnant/definitions/teleports/index.xml
+   trunk/shard/rayonnant/definitions/teleports/rayonnant.xml
+   trunk/shard/rayonnant/shardscripts/__init__.py
+   trunk/shard/rayonnant/shardscripts/auto/__init__.py
+   trunk/shard/rayonnant/shardscripts/auto/shard_status.py
+   trunk/shard/rayonnant/shardscripts/commands/__init__.py
+   trunk/shard/rayonnant/shardscripts/commands/mapscanner.py
+   trunk/shard/rayonnant/shardscripts/commands/safe_wipe.py
+   trunk/shard/rayonnant/shardscripts/commands/server_notices.py
+   trunk/shard/rayonnant/shardscripts/commands/world_backup.py
+   trunk/shard/rayonnant/shardscripts/farms/__init__.py
+   trunk/shard/rayonnant/shardscripts/farms/trees.py
+   trunk/shard/rayonnant/shardscripts/npcs/__init__.py
+   trunk/shard/rayonnant/shardscripts/npcs/rabbit.py
+   trunk/shard/rayonnant/shardscripts/races/__init__.py
+   trunk/shard/rayonnant/shardscripts/races/races.py
+   trunk/shard/rayonnant/shardscripts/races/raceselection.py
+   trunk/shard/rayonnant/shardscripts/server/__init__.py
+   trunk/shard/rayonnant/shardscripts/server/consts.py
+   trunk/shard/rayonnant/shardscripts/skills/__init__.py
+   trunk/shard/rayonnant/shardscripts/system/__init__.py
+   trunk/shard/rayonnant/shardscripts/virtues.py
+Log:
+Updates to the GPL information and a few small fixes.
+
+
+Modified: trunk/shard/docs/ChangeLog.rayonnant
+===================================================================
+--- trunk/shard/docs/ChangeLog.rayonnant	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/docs/ChangeLog.rayonnant	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,9 +1,9 @@
+ Rayonnant 1.0.0 ChangeLog
+ 
+-Rayonnant 1.0.0-bk1  (CVS)
+-	- Established CVS
+-	- Established File Format Standard
+-	- New Version Format x.y.z
+-		~ This should be easier to follow, kernel format style.
+-	- Removed the version numbers from the scripts.
+-		~ This would be too hard to update anyways.
++Rayonnant YYYYMMDD (SVN):
++
++
++Rayonnant 20050306:
++	- Established SVN
++	- New base file structure: shard/rayonnant/
++	- New release standards: shard/docs/release.html
+
+Modified: trunk/shard/docs/README
+===================================================================
+--- trunk/shard/docs/README	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/docs/README	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,13 +1,12 @@
+ 
+ This package is designed for use with the latest version of Wolfpack.
+-Wolfpack Homepage: http://www.wpdev.org
++Wolfpack Homepage: http://www.wpdev.org/
+ 
+-Place this entire package in /Path/To/Wolfpack/
++Place this entire package in: /path/to/wolfpack_shard/
+ 
+-You should then have
+-	/Path/To/Wolfpack/rayonnant/
++You should then have: /path/to/wolfpack_shard/rayonnant/
+ 
+-Then open /Path/To/Wolfpack/wolfpack.xml and change the following
++Then open /path/to/wolfpack_shard/wolfpack.xml and change the following
+ 
+ For definitions change:
+ 	<!-- Old -->
+
+Modified: trunk/shard/docs/authors.css
+===================================================================
+--- trunk/shard/docs/authors.css	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/docs/authors.css	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,6 +1,6 @@
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -20,7 +20,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ 
+
+Modified: trunk/shard/docs/authors.dtd
+===================================================================
+--- trunk/shard/docs/authors.dtd	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/docs/authors.dtd	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/docs/authors.xml
+===================================================================
+--- trunk/shard/docs/authors.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/docs/authors.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,10 +1,10 @@
+ <?xml version='1.0' encoding='UTF-8' ?>
+-<!DOCTYPE authors SYSTEM "authors.dtd">
+-<?xml-stylesheet type="text/css" href="authors.css"?>
++<!DOCTYPE authors SYSTEM "./authors.dtd">
++<?xml-stylesheet type="text/css" href="./authors.css"?>
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -24,7 +24,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+@@ -32,7 +32,7 @@
+ 	<developer>
+ 		<name>Kilgore, Phillip</name>
+ 		<alias>Raving Idiot</alias>
+-		<email>raving at vandermeijer.com</email>
++		<email>raving at wheefun.com</email>
+ 		<roles>
+ 			<role>Scripter</role>
+ 			<role>World Builder</role>
+@@ -41,7 +41,7 @@
+ 	<developer>
+ 		<name>Lott, Jim</name>
+ 		<alias>Laocourn</alias>
+-		<email>laocourn at vandermeijer.com</email>
++		<email>laocourn at covetgear.com</email>
+ 		<roles>
+ 			<role>Map Designer</role>
+ 			<role>World Builder</role>
+@@ -56,4 +56,12 @@
+ 			<role>Scripter</role>
+ 		</roles>
+ 	</developer>
++	<developer>
++		<name>Wingo, Elizabeth</name>
++		<alias>Inanna</alias>
++		<email>phonekitty7 at yahoo.com</email>
++		<roles>
++			<role>Map Builder</role>
++		</roles>
++	</developer>
+ </authors>
+
+Modified: trunk/shard/docs/fileheaders.txt
+===================================================================
+--- trunk/shard/docs/fileheaders.txt	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/docs/fileheaders.txt	2005-03-06 22:26:37 UTC (rev 2)
+@@ -4,7 +4,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -24,7 +24,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+@@ -34,7 +34,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -54,7 +54,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Added: trunk/shard/docs/releases.html
+===================================================================
+--- trunk/shard/docs/releases.html	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/docs/releases.html	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,94 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
++<!--
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++-->
++<html xmlns="http://www.w3.org/1999/xhtml">
++<head>
++  <title>Rayonnant Shard Release Information</title>
++  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
++</head>
++<body>
++	<h2>Rayonnant Shard Release Information</h2>
++	<!--***********************************************************************-->
++	<h5>General Information</h5>
++	<div>
++		The Rayonnant Shard will have three types of releases:
++		<ul>
++			<li><a href="#maps">Map file releases.</a></li>
++			<li><a href="#scripts">Definitions and scripts releases.</a></li>
++			<li><a href="#phases">Package or phase based releases.</a></li>
++		</ul>
++	</div>
++	<!--***********************************************************************-->
++	<a id="maps"></a>
++	<h5>Map File Releases</h5>
++	<div>
++		The map files are a vital part to this project. We will have timestamped
++		releases with these files. Releases will be provided with BitTorrents to
++		promote a shared release system due to these being the largest of the file
++		releases.
++		<br /><br />
++		Example archived map release: <tt>shard-map_YYYYMMDD.tar.bz2</tt><br />
++		Example torrent map release: <tt>shard-map_YYYYMMDD.tar.bz2.torrent</tt>
++		<br /><br />
++		BitTorrents can be made with the following command:<br />
++		<tt>btmakemetafile.py shard-map_YYYYMMDD.tar.bz2 \<br />
++		&#160;&#160;&#160;&#160;http://rayonnant.net:7000/announce \<br />
++		&#160;&#160;&#160;&#160;--comment "http://shard.rayonnant.net"</tt>
++	</div>
++	<!--***********************************************************************-->
++	<a id="scripts"></a>
++	<h5>Definition and Script Releases</h5>
++	<div>
++		The definitions and scripts are another vital part of the project. These
++		are also developed sporadicly so we will also be using a timestamped
++		release method here.
++		<br /><br />
++		Example archived scripts release: <tt>shard-scripts_YYYYMMDD.tar.bz2</tt>
++	</div>
++	<!--***********************************************************************-->
++	<a id="phases"></a>
++	<h5>Phase Based Releases</h5>
++	<div>
++		The Rayonnant Shard has three phases layed out:
++		<ul>
++			<li>Phase 1: Building of the world's map data.</li>
++			<li>Phase 2: Scripting the world's events and objects.</li>
++			<li>Phase 3: Bug hunting and general testing.</li>
++		</ul>
++		Due to the development style of this project, we will have packaged releases
++		based on a phase and timestamp method. It is possible for releases to be
++		between phases. However we will not be between phase 1 and phase3.
++		<br /><br />
++		An example of a phase release: <tt>shard_phase1_20050306.tar.bz2</tt>
++		<br />
++		An example of a mix phased release: <tt>shard_phase1-2_20050306.tar.bz2</tt>
++	</div>
++	<!--***********************************************************************-->
++</body>
++</html>
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/definitions/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/items/farm/trees.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/items/farm/trees.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/items/farm/trees.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+@@ -32,7 +32,7 @@
+ 		<id>0x1f13</id>
+ 		<nodecay />
+ 		<movable>3</movable>
+-		<scripts>shardscripts.farms.trees</scripts>
++		<basescripts>shardscripts.farms.trees</basescripts>
+ 	</item>
+ 
+ 	<item id="apple_tree_gem" inherit="tree_gem">
+
+Modified: trunk/shard/rayonnant/definitions/items/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/items/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/items/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+@@ -31,4 +31,3 @@
+ 	<!-- Items -->
+ 	<include file="rayonnant/definitions/items/farm/index.xml" />
+ </definitions>
+-
+
+Modified: trunk/shard/rayonnant/definitions/lists/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/lists/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/lists/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/locations/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/locations/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/locations/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/locations/rayonnant.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/locations/rayonnant.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/locations/rayonnant.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/npcs/animals/rabbit.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/animals/rabbit.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/npcs/animals/rabbit.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+@@ -30,7 +30,7 @@
+ <definitions>
+ 
+ 	<npc id="rabbit_2" inherit="rabbit">
+-		<events>shardscripts.npcs.rabbit</events>
++		<basescripts>shardscripts.npcs.rabbit</basescripts>
+ 	</npc>
+ 
+ </definitions>
+
+Modified: trunk/shard/rayonnant/definitions/npcs/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/npcs/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/npcs/monsters/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/monsters/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/npcs/monsters/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/npcs/testing.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/testing.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/npcs/testing.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/regions/dungeons/bunny_den.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/regions/dungeons/bunny_den.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/regions/dungeons/bunny_den.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/regions/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/regions/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/regions/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/regions/misc/green_acres.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/regions/misc/green_acres.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/regions/misc/green_acres.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/regions/rayonnant.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/regions/rayonnant.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/regions/rayonnant.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/regions/towns/thalos.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/regions/towns/thalos.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/regions/towns/thalos.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/spawnregions/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/spawnregions/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/spawnregions/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/spawnregions/towns/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/spawnregions/towns/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/spawnregions/towns/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/spawnregions/towns/thalos.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/spawnregions/towns/thalos.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/spawnregions/towns/thalos.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/spawnregions/towns/thalos_farms.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/spawnregions/towns/thalos_farms.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/spawnregions/towns/thalos_farms.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/spawnregions/tworivers/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/spawnregions/tworivers/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/spawnregions/tworivers/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/spawnregions/tworivers/wilderness.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/spawnregions/tworivers/wilderness.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/spawnregions/tworivers/wilderness.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/system/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/system/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/system/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/definitions/system/scripts.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/system/scripts.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/system/scripts.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,8 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+ 
+
+Modified: trunk/shard/rayonnant/definitions/teleports/index.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/teleports/index.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/teleports/index.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,11 +22,10 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+ <definitions>
+ 	<include file="rayonnant/definitions/teleports/rayonnant.xml"/>
+ </definitions>
+-
+
+Modified: trunk/shard/rayonnant/definitions/teleports/rayonnant.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/teleports/rayonnant.xml	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/definitions/teleports/rayonnant.xml	2005-03-06 22:26:37 UTC (rev 2)
+@@ -2,7 +2,7 @@
+ <!--
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -22,7 +22,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ -->
+
+Modified: trunk/shard/rayonnant/shardscripts/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,27 @@
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/auto/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/auto/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/auto/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,27 @@
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/auto/shard_status.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/auto/shard_status.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/auto/shard_status.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/commands/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/commands/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/commands/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,27 @@
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/commands/mapscanner.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/commands/mapscanner.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/commands/mapscanner.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/commands/safe_wipe.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/commands/safe_wipe.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/commands/safe_wipe.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/commands/server_notices.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/commands/server_notices.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/commands/server_notices.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/commands/world_backup.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/commands/world_backup.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/commands/world_backup.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/farms/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/farms/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/farms/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,27 @@
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/farms/trees.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/farms/trees.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/farms/trees.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/npcs/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/npcs/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/npcs/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,27 @@
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/npcs/rabbit.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/npcs/rabbit.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/npcs/rabbit.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/races/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/races/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/races/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/races/races.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/races/races.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/races/races.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1 +1,27 @@
+-
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/races/raceselection.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/races/raceselection.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/races/raceselection.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+Modified: trunk/shard/rayonnant/shardscripts/server/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/server/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/server/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,27 @@
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/server/consts.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/server/consts.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/server/consts.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+@@ -29,4 +29,3 @@
+ # Server Status Page Constants
+ # [ Server Address, Ouput File, Update Time (30sec) ]
+ SHARDSTATUS = [ 'shard.rayonnant.net, 2593', 'shard_status.php', 60 ]
+-
+
+Modified: trunk/shard/rayonnant/shardscripts/skills/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/skills/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/skills/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,27 @@
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/system/__init__.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/system/__init__.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/system/__init__.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -0,0 +1,27 @@
++"""
++/*
++ * Rayonnant Scripts
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Palace - Suite 330, Boston, MA 02111-1307, USA.
++ *
++ * In addition to that license, if you are running this program or modified
++ * versions of it on a public system you HAVE TO make the complete source of
++ * the version used by you available or provide people with a location to
++ * download it.
++ *
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
++ * Official Shard: http://shard.rayonnant.net/
++ */
++"""
+\ No newline at end of file
+
+Modified: trunk/shard/rayonnant/shardscripts/virtues.py
+===================================================================
+--- trunk/shard/rayonnant/shardscripts/virtues.py	2005-03-06 01:05:45 UTC (rev 1)
++++ trunk/shard/rayonnant/shardscripts/virtues.py	2005-03-06 22:26:37 UTC (rev 2)
+@@ -1,7 +1,7 @@
+ """
+ /*
+  * Rayonnant Scripts
+- * Copyright 2004 by holders identified in /rayonnant/authors.xml
++ * Copyright 2004 by holders identified in shard/docs/authors.xml
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+@@ -21,7 +21,7 @@
+  * the version used by you available or provide people with a location to
+  * download it.
+  *
+- * Rayonnant Shard Home: http://sourceforge.net/projects/rayonnant-shard/
++ * Rayonnant Shard Home: http://developer.berlios.de/projects/rayonnant-shard/
+  * Official Shard: http://shard.rayonnant.net/
+  */
+ """
+
+
+
+From dreoth at sheep.berlios.de  Wed Mar  9 22:11:41 2005
+From: dreoth at sheep.berlios.de (Richard Meyer at BerliOS)
+Date: Wed, 9 Mar 2005 22:11:41 +0100
+Subject: [Rayonnant-shard-commits] r3 - in trunk/shard/rayonnant/definitions/npcs: . monsters
+Message-ID: <200503092111.j29LBftB013314@sheep.berlios.de>
+
+Author: dreoth
+Date: 2005-03-09 22:11:40 +0100 (Wed, 09 Mar 2005)
+New Revision: 3
+
+Modified:
+   trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml
+   trunk/shard/rayonnant/definitions/npcs/testing.xml
+Log:
+Updates
+
+
+Modified: trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml	2005-03-06 22:26:37 UTC (rev 2)
++++ trunk/shard/rayonnant/definitions/npcs/monsters/shadow_hunter.xml	2005-03-09 21:11:40 UTC (rev 3)
+@@ -58,9 +58,9 @@
+ 		<tag name="def_poison" value="100" type="int" />
+ 		<tag name="def_energy" value="50" type="int" />
+ 		<!-- Skills -->
+-		<anatomy><random min="200" max="900" /></anatomy>
+-		<tactics><random min="600" max="900" /></tactics>
+-		<wrestling><random min="600" max="900" /></wrestling>
++		<skill id="anatomy"><random min="200" max="900" /></skill>
++		<skill id="tactics"><random min="600" max="900" /></skill>
++		<skill id="wrestling"><random min="600" max="900" /></skill>
+ 		<!-- Loot Packs -->
+ 		<!--<lootpacks>pack_name</lootpacks>-->
+ 		<!-- Misc. Stuff -->
+
+Modified: trunk/shard/rayonnant/definitions/npcs/testing.xml
+===================================================================
+--- trunk/shard/rayonnant/definitions/npcs/testing.xml	2005-03-06 22:26:37 UTC (rev 2)
++++ trunk/shard/rayonnant/definitions/npcs/testing.xml	2005-03-09 21:11:40 UTC (rev 3)
+@@ -47,12 +47,12 @@
+ 		<mindamage>9</mindamage>
+ 		<maxdamage>29</maxdamage>
+ 		<!-- Skills -->
+-		<wrestling><random min="848" max="981" /></wrestling>
+-		<tactics><random min="976" max="1000" /></tactics>
+-		<magicresistance><random min="860" max="990" /></magicresistance>
+-		<magery><random min="911" max="1000" /></magery>
+-		<anatomy>0</anatomy>
+-		<meditation>0</meditation>
++		<skill id="wrestling"><random min="848" max="981" /></skill>
++		<skill id="tactics"><random min="976" max="1000" /></skill>
++		<skill id="magicresistance"><random min="860" max="990" /></skill>
++		<skill id="magery"><random min="911" max="1000" /></skill>
++		<skill id="anatomy">0</skill>
++		<skill id="meditation">0</skill>
+ 		<!-- Misc -->
+ 		<totame>998</totame>
+ 		<food>1</food>
+@@ -75,10 +75,10 @@
+ 		<mindamage>9</mindamage>
+ 		<maxdamage>29</maxdamage>
+ 		<!-- Skills -->
+-		<wrestling><random min="848" max="981" /></wrestling>
+-		<tactics><random min="976" max="1000" /></tactics>
+-		<magicresistance><random min="860" max="990" /></magicresistance>
+-		<anatomy>0</anatomy>
++		<skill id="wrestling"><random min="848" max="981" /></skill>
++		<skill id="tactics"><random min="976" max="1000" /></skill>
++		<skill id="magicresistance"><random min="860" max="990" /></skill>
++		<skill id="anatomy">0</skill>
+ 		<!-- Equipment -->
+ 		<equipped>
+ 			<item inherit="e75" />
+@@ -110,10 +110,10 @@
+ 		<dex><random min="66" max="120" /></dex>
+ 		<int><random min="66" max="100" /></int>
+ 		<!-- Skills -->
+-		<wrestling><random min="848" max="981" /></wrestling>
+-		<tactics><random min="976" max="1000" /></tactics>
+-		<magicresistance><random min="860" max="990" /></magicresistance>
+-		<anatomy>0</anatomy>
++		<skill id="wrestling"><random min="848" max="981" /></skill>
++		<skill id="tactics"><random min="976" max="1000" /></skill>
++		<skill id="magicresistance"><random min="860" max="990" /></skill>
++		<skill id="anatomy">0</skill>
+ 		<!-- Equipment -->
+ 		<equipped>
+ 			<item inherit="e75" />
+@@ -144,10 +144,10 @@
+ 		<mindamage>1</mindamage>
+ 		<maxdamage>6</maxdamage>
+ 		<!-- Skills -->
+-		<wrestling><random min="848" max="981" /></wrestling>
+-		<tactics><random min="976" max="1000" /></tactics>
+-		<magicresistance><random min="860" max="990" /></magicresistance>
+-		<anatomy>0</anatomy>
++		<skill id="wrestling"><random min="848" max="981" /></skill>
++		<skill id="tactics"><random min="976" max="1000" /></skill>
++		<skill id="magicresistance"><random min="860" max="990" /></skill>
++		<skill id="anatomy">0</skill>
+ 		<!-- Equipment -->
+ 		<equipped>
+ 			<item inherit="e75" />
+
+
+
